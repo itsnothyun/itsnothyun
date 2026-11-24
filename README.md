@@ -8,14 +8,9 @@
   <a href="https://www.threads.com/@prxcyng"><img src="https://img.shields.io/badge/Threads-%40prxcyng-090909?style=flat-square&logo=threads&logoColor=f2f2ed&labelColor=090909&color=262626" alt="Threads" /></a>
 </p>
 
-```text
-.:-=+*#%@  HYUN ─────────────────────────────────────────────── ● online
-
-  role      software engineer
-  builds    the pulse ecosystem · small, quiet, monochrome tools
-  stack     rust · swift · c# · python · typescript · react · tauri
-  rule      local-first. no telemetry. it should idle at a few percent cpu.
-```
+<p align="center">
+  <img src="assets/whoami.svg" width="100%" alt="whoami — Hyun, software engineer building the pulse ecosystem. Stack: rust, swift, c#, python, typescript, react, tauri. Local-first, no telemetry." />
+</p>
 
 ### ▌ the pulse ecosystem
 
@@ -58,6 +53,3 @@ Five tools for your desktop, your servers, your team and your network. One quiet
 </p>
 <!-- pulse:end -->
 
-<p align="center">
-  <img src="assets/heartbeat.svg" alt="heartbeat — thanks for stopping by" width="100%" />
-</p>

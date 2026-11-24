@@ -157,7 +157,6 @@ if which == 'profile':
         ('connect', 'CONNECT', 'your network, by device', 'desktop · private'),
     ]:
         card(os.path.join(OUT, f'card-{slug}.svg'), word, sub, meta)
-    heartbeat(os.path.join(OUT, 'heartbeat.svg'))
 elif which == 'stash':
     banner('stash-banner.svg', 'STASH', [('Capture it. Stash it. Find it instantly.', MID, 17),
                                         ('local-first floating notes for macos and windows', DIM, 13)],

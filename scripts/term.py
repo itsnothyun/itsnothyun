@@ -1,5 +1,5 @@
-# Renders "pulse of the day" as a looping terminal window: the command types, the
-# output prints line by line, holds, then the screen clears and it runs again.
+# Looping terminal windows for the profile: the command types, the output prints
+# line by line, holds, then the screen clears and it runs again.
 import html
 
 BG, BAR, ON, MID, DIM, OFF, LINE = '#090909', '#111111', '#f2f2ed', '#b3b3ad', '#8c8c88', '#3a3a3a', '#303030'
@@ -15,7 +15,6 @@ def meter(n, top, width=12):
 
 def render(path, now, recent, releases, phase):
     """recent: [(name, pushed_date, commits_this_week)], releases: [(name, tag, date)]"""
-    W, PAD, TOP = 1200, 28, 40
     rows = []   # each row: list of (col, text, color)
 
     def row(*cells): rows.append(list(cells))
@@ -35,8 +34,28 @@ def render(path, now, recent, releases, phase):
         row((0, name, ON), (20, tag, MID), (35, date, DIM), *([(48, '● latest', MID)] if i == 0 else []))
     row((0, '', DIM))
     row((0, f'field phase {phase:03d}', DIM), (16, '·', OFF), (18, 'next beat in 24h', DIM))
+    window(path, 'pulse --today', rows, 'pulse of the day: recent activity and releases')
 
-    cmd = 'pulse --today'
+
+def whoami(path):
+    rows = []
+
+    def row(*cells): rows.append(list(cells))
+
+    row((0, '', DIM))
+    row((0, 'HYUN', ON), (6, '·', OFF), (8, 'itsnothyun', MID), (56, '●', ON), (58, 'online', DIM))
+    row((0, '', DIM))
+    for key, val in [('role', 'software engineer'),
+                     ('builds', 'the pulse ecosystem · small, quiet, monochrome tools'),
+                     ('stack', 'rust · swift · c# · python · typescript · react · tauri'),
+                     ('rule', 'local-first. no telemetry. it should idle at a few percent cpu.')]:
+        row((0, key, DIM), (10, val, ON if key == 'role' else MID))
+    window(path, 'whoami', rows, 'hyun: software engineer building the pulse ecosystem', loop=11.0)
+
+
+def window(path, cmd, rows, label, loop=LOOP):
+    W, PAD, TOP = 1200, 28, 40
+    LOOP = loop
     prompt = 'hyun@pulse:~$ '
     H = TOP + 26 + (len(rows) + 2) * LH + 18
     t_type, t_print, t_hold = 0.06, 0.12, 0.70   # fractions of LOOP
@@ -80,8 +99,8 @@ def render(path, now, recent, releases, phase):
     body.append(f'<g style="animation:typecur {LOOP}s linear infinite"><rect x="{cx:.1f}" y="{y0 - FS + 2:.1f}" width="{CW:.1f}" height="{FS + 2}" fill="{ON}" '
                 f'style="animation:typemove {LOOP}s steps({len(cmd)}) infinite"/></g>')
 
-    title = 'hyun — pulse --today — 120×24'
-    svg = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H:.0f}" width="{W}" height="{H:.0f}" role="img" aria-label="pulse of the day: recent activity and releases">',
+    title = f'hyun — {cmd} — 120×24'
+    svg = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H:.0f}" width="{W}" height="{H:.0f}" role="img" aria-label="{html.escape(label)}">',
            '<style>' + ''.join(css) + '</style>',
            f'<clipPath id="win"><rect width="{W}" height="{H:.0f}" rx="14"/></clipPath>',
            f'<g clip-path="url(#win)"><rect width="{W}" height="{H:.0f}" fill="{BG}"/>',
@@ -91,3 +110,8 @@ def render(path, now, recent, releases, phase):
            *body, '</g>',
            f'<rect x=".5" y=".5" width="{W-1}" height="{H-1:.0f}" rx="13.5" fill="none" stroke="{LINE}"/></svg>']
     open(path, 'w', encoding='utf8').write('\n'.join(svg))
+
+
+if __name__ == '__main__':
+    import os
+    whoami(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'assets', 'whoami.svg'))

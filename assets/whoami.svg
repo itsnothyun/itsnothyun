@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 282" width="1200" height="282" role="img" aria-label="hyun: software engineer building the pulse ecosystem">
+<style>text{font-family:ui-monospace,'SF Mono','Cascadia Mono',Menlo,Consolas,monospace;font-size:14px;white-space:pre}.cur{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}@media (prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}}@keyframes c0{0%,1.99%{opacity:0}2.0%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes c1{0%,2.99%{opacity:0}3.0%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes c2{0%,3.99%{opacity:0}4.0%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes c3{0%,4.99%{opacity:0}5.0%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes c4{0%,5.99%{opacity:0}6.0%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes c5{0%,6.99%{opacity:0}7.0%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes r0{0%,9.99%{opacity:0}10.0%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes r1{0%,11.700000000000001%{opacity:0}11.71%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes r2{0%,13.42%{opacity:0}13.43%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes r3{0%,15.13%{opacity:0}15.14%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes r4{0%,16.849999999999998%{opacity:0}16.86%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes r5{0%,18.56%{opacity:0}18.57%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes r6{0%,20.279999999999998%{opacity:0}20.29%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes end{0%,22.99%{opacity:0}23.0%,94.0%{opacity:1}94.01%,100%{opacity:0}}@keyframes typecur{0%{opacity:1}9.0%,100%{opacity:0}}@keyframes typemove{0%,2%{transform:translateX(0)}8.0%,100%{transform:translateX(50.4px)}}</style>
+<clipPath id="win"><rect width="1200" height="282" rx="14"/></clipPath>
+<g clip-path="url(#win)"><rect width="1200" height="282" fill="#090909"/>
+<rect width="1200" height="40" fill="#111111"/><line x1="0" y1="40.5" x2="1200" y2="40.5" stroke="#303030"/>
+<circle cx="24" cy="20.0" r="6" fill="none" stroke="#3a3a3a" stroke-width="1.5"/>
+<circle cx="44" cy="20.0" r="6" fill="none" stroke="#3a3a3a" stroke-width="1.5"/>
+<circle cx="64" cy="20.0" r="6" fill="none" stroke="#3a3a3a" stroke-width="1.5"/>
+<text x="600.0" y="24.0" text-anchor="middle" fill="#8c8c88" style="font-size:12px;letter-spacing:1px">hyun — whoami — 120×24</text>
+<text x="28" y="82.5" fill="#8c8c88">hyun@pulse:~$ </text>
+<text x="145.6" y="82.5" fill="#f2f2ed" style="animation:c0 11.0s linear infinite">w</text>
+<text x="154.0" y="82.5" fill="#f2f2ed" style="animation:c1 11.0s linear infinite">h</text>
+<text x="162.4" y="82.5" fill="#f2f2ed" style="animation:c2 11.0s linear infinite">o</text>
+<text x="170.8" y="82.5" fill="#f2f2ed" style="animation:c3 11.0s linear infinite">a</text>
+<text x="179.2" y="82.5" fill="#f2f2ed" style="animation:c4 11.0s linear infinite">m</text>
+<text x="187.6" y="82.5" fill="#f2f2ed" style="animation:c5 11.0s linear infinite">i</text>
+<text y="126.5" style="animation:r1 11.0s linear infinite"><tspan x="44.0" fill="#f2f2ed">HYUN</tspan><tspan x="94.4" fill="#3a3a3a">·</tspan><tspan x="111.2" fill="#b3b3ad">itsnothyun</tspan><tspan x="514.4" fill="#f2f2ed">●</tspan><tspan x="531.2" fill="#8c8c88">online</tspan></text>
+<text y="170.5" style="animation:r3 11.0s linear infinite"><tspan x="44.0" fill="#8c8c88">role</tspan><tspan x="128.0" fill="#f2f2ed">software engineer</tspan></text>
+<text y="192.5" style="animation:r4 11.0s linear infinite"><tspan x="44.0" fill="#8c8c88">builds</tspan><tspan x="128.0" fill="#b3b3ad">the pulse ecosystem · small, quiet, monochrome tools</tspan></text>
+<text y="214.5" style="animation:r5 11.0s linear infinite"><tspan x="44.0" fill="#8c8c88">stack</tspan><tspan x="128.0" fill="#b3b3ad">rust · swift · c# · python · typescript · react · tauri</tspan></text>
+<text y="236.5" style="animation:r6 11.0s linear infinite"><tspan x="44.0" fill="#8c8c88">rule</tspan><tspan x="128.0" fill="#b3b3ad">local-first. no telemetry. it should idle at a few percent cpu.</tspan></text>
+<g style="animation:end 11.0s linear infinite"><text x="28" y="258.5" fill="#8c8c88">hyun@pulse:~$ </text><rect class="cur" x="145.6" y="246.5" width="8.4" height="16" fill="#f2f2ed"/></g>
+<g style="animation:typecur 11.0s linear infinite"><rect x="145.6" y="70.5" width="8.4" height="16" fill="#f2f2ed" style="animation:typemove 11.0s steps(6) infinite"/></g>
+</g>
+<rect x=".5" y=".5" width="1199" height="281" rx="13.5" fill="none" stroke="#303030"/></svg>
