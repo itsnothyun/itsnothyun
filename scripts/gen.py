@@ -142,22 +142,23 @@ def heartbeat(path, W=1200, H=100):
            '</svg>']
     open(path, 'w', encoding='utf8').write('\n'.join(out))
 
-OUT = os.environ.get('PULSE_OUT', '.')
-which = sys.argv[1] if len(sys.argv) > 1 else 'profile'
-if which == 'profile':
-    banner(os.path.join(OUT, 'header.svg'), 'HYUN', [('quiet, local-first tools for your desktop, servers and team', MID, 17),
-                                 ('rust · swift · c# · typescript · react · tauri', DIM, 13)],
-           tag='~/itsnothyun', badge='ONLINE')
-    for slug, word, sub, meta in [
-        ('pulse', 'PULSE', "your machine's vitals, in pixels", 'macos · windows · linux'),
-        ('explorer', 'EXPLORER', 'open and convert any file, on-device', 'react · tauri v2 · web + desktop'),
-        ('stash', 'STASH', 'floating notes, stashed locally', 'tauri 2 · rust · sqlite fts5'),
-        ('sync', 'SYNC', 'every server, on one screen', 'web app · invite only'),
-        ('track', 'TRACK', 'who shipped what, today', 'web app · private'),
-        ('connect', 'CONNECT', 'your network, by device', 'desktop · private'),
-    ]:
-        card(os.path.join(OUT, f'card-{slug}.svg'), word, sub, meta)
-elif which == 'stash':
-    banner('stash-banner.svg', 'STASH', [('Capture it. Stash it. Find it instantly.', MID, 17),
-                                        ('local-first floating notes for macos and windows', DIM, 13)],
-           CH=11, tag='STASH / DESKTOP', badge='v0.1.3')
+if __name__ == '__main__':
+    OUT = os.environ.get('PULSE_OUT', '.')
+    which = sys.argv[1] if len(sys.argv) > 1 else 'profile'
+    if which == 'profile':
+        banner(os.path.join(OUT, 'header.svg'), 'HYUN', [('quiet, local-first tools for your desktop, servers and team', MID, 17),
+                                     ('rust · swift · c# · typescript · react · tauri', DIM, 13)],
+               tag='~/itsnothyun', badge='ONLINE')
+        for slug, word, sub, meta in [
+            ('pulse', 'PULSE', "your machine's vitals, in pixels", 'macos · windows · linux'),
+            ('explorer', 'EXPLORER', 'open and convert any file, on-device', 'react · tauri v2 · web + desktop'),
+            ('stash', 'STASH', 'floating notes, stashed locally', 'tauri 2 · rust · sqlite fts5'),
+            ('sync', 'SYNC', 'every server, on one screen', 'web app · invite only'),
+            ('track', 'TRACK', 'who shipped what, today', 'web app · private'),
+            ('connect', 'CONNECT', 'your network, by device', 'desktop · private'),
+        ]:
+            card(os.path.join(OUT, f'card-{slug}.svg'), word, sub, meta)
+    elif which == 'stash':
+        banner('stash-banner.svg', 'STASH', [('Capture it. Stash it. Find it instantly.', MID, 17),
+                                            ('local-first floating notes for macos and windows', DIM, 13)],
+               CH=11, tag='STASH / DESKTOP', badge='v0.1.3')

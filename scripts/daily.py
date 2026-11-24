@@ -1,6 +1,6 @@
 # Daily beat: shifts the header's ASCII field to today's phase and rewrites the
 # activity block in README.md from public GitHub data. Run by .github/workflows/daily.yml.
-import datetime as dt, json, os, re, subprocess, sys, urllib.request
+import datetime as dt, json, os, re, sys, urllib.request
 
 USER = 'itsnothyun'
 RELEASE_REPOS = ['Pulse', 'Pulse-Explorer', 'Stash']
@@ -45,12 +45,13 @@ for name in RELEASE_REPOS:
 releases.sort(key=lambda r: r[2], reverse=True)
 
 sys.path.insert(0, HERE)
-import term
-term.render(os.path.join(ROOT, 'assets', 'today.svg'), now, recent, releases, day)
+import compose
+compose.build(os.path.join(ROOT, 'assets', 'profile.svg'), now, recent, releases, day)
 
 summary = '; '.join(f'{n} {c} commit{"s" * (c != 1)} this week' for n, _, c in recent if c) or 'a quiet week'
-block = ('<p align="center">\n  <img src="assets/today.svg" width="100%" '
-         f'alt="pulse of the day, {now:%Y-%m-%d}: {summary}" />\n</p>')
+block = ('<p align="center">\n  <img src="assets/profile.svg" width="100%" '
+         'alt="Hyun, software engineer building the pulse ecosystem: Pulse, Explorer, Sync, Track, Connect and Stash. '
+         f'Pulse of the day, {now:%Y-%m-%d}: {summary}" />\n</p>')
 
 readme_path = os.path.join(ROOT, 'README.md')
 readme = open(readme_path, encoding='utf8').read()
@@ -58,6 +59,4 @@ readme = re.sub(r'<!-- pulse:start -->.*?<!-- pulse:end -->',
                 f'<!-- pulse:start -->\n{block}\n<!-- pulse:end -->', readme, flags=re.S)
 open(readme_path, 'w', encoding='utf8', newline='\n').write(readme)
 
-env = dict(os.environ, PULSE_PHASE=str(day * 0.37), PULSE_OUT=os.path.join(ROOT, 'assets'))
-subprocess.run([sys.executable, os.path.join(HERE, 'gen.py'), 'profile'], env=env, check=True)
 print(block)

@@ -13,7 +13,7 @@ def meter(n, top, width=12):
     return '#' * filled, '.' * (width - filled)
 
 
-def render(path, now, recent, releases, phase):
+def render(path, now, recent, releases, phase, bare=False):
     """recent: [(name, pushed_date, commits_this_week)], releases: [(name, tag, date)]"""
     rows = []   # each row: list of (col, text, color)
 
@@ -34,10 +34,10 @@ def render(path, now, recent, releases, phase):
         row((0, name, ON), (20, tag, MID), (35, date, DIM), *([(48, '● latest', MID)] if i == 0 else []))
     row((0, '', DIM))
     row((0, f'field phase {phase:03d}', DIM), (16, '·', OFF), (18, 'next beat in 24h', DIM))
-    window(path, 'pulse --today', rows, 'pulse of the day: recent activity and releases')
+    window(path, 'pulse --today', rows, 'pulse of the day: recent activity and releases', bare=bare)
 
 
-def whoami(path):
+def whoami(path, bare=False):
     rows = []
 
     def row(*cells): rows.append(list(cells))
@@ -50,14 +50,15 @@ def whoami(path):
                      ('stack', 'rust · swift · c# · python · typescript · react · tauri'),
                      ('rule', 'local-first. no telemetry. it should idle at a few percent cpu.')]:
         row((0, key, DIM), (10, val, ON if key == 'role' else MID))
-    window(path, 'whoami', rows, 'hyun: software engineer building the pulse ecosystem', loop=11.0)
+    window(path, 'whoami', rows, 'hyun: software engineer building the pulse ecosystem', loop=11.0, bare=bare)
 
 
-def window(path, cmd, rows, label, loop=LOOP):
-    W, PAD, TOP = 1200, 28, 40
+def window(path, cmd, rows, label, loop=LOOP, bare=False):
+    # bare: no title bar or frame, for embedding inside the profile panel
+    W, PAD, TOP = 1200, 28, (0 if bare else 40)
     LOOP = loop
     prompt = 'hyun@pulse:~$ '
-    H = TOP + 26 + (len(rows) + 2) * LH + 18
+    H = TOP + (6 if bare else 26) + (len(rows) + 2) * LH + (6 if bare else 18)
     t_type, t_print, t_hold = 0.06, 0.12, 0.70   # fractions of LOOP
 
     def kf(name, on_at, off_at=0.94):
@@ -68,7 +69,7 @@ def window(path, cmd, rows, label, loop=LOOP):
            '.cur{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}',
            '@media (prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}}']
     body = []
-    y0 = TOP + 26 + LH * 0.75
+    y0 = TOP + (6 if bare else 26) + LH * 0.75
 
     # prompt + typed command
     body.append(f'<text x="{PAD}" y="{y0:.1f}" fill="{DIM}">{html.escape(prompt)}</text>')
@@ -104,11 +105,12 @@ def window(path, cmd, rows, label, loop=LOOP):
            '<style>' + ''.join(css) + '</style>',
            f'<clipPath id="win"><rect width="{W}" height="{H:.0f}" rx="14"/></clipPath>',
            f'<g clip-path="url(#win)"><rect width="{W}" height="{H:.0f}" fill="{BG}"/>',
-           f'<rect width="{W}" height="{TOP}" fill="{BAR}"/><line x1="0" y1="{TOP}.5" x2="{W}" y2="{TOP}.5" stroke="{LINE}"/>',
-           *[f'<circle cx="{24 + i*20}" cy="{TOP/2}" r="6" fill="none" stroke="{OFF}" stroke-width="1.5"/>' for i in range(3)],
-           f'<text x="{W/2}" y="{TOP/2 + 4}" text-anchor="middle" fill="{DIM}" style="font-size:12px;letter-spacing:1px">{html.escape(title)}</text>',
+           *([] if bare else [
+               f'<rect width="{W}" height="{TOP}" fill="{BAR}"/><line x1="0" y1="{TOP}.5" x2="{W}" y2="{TOP}.5" stroke="{LINE}"/>',
+               *[f'<circle cx="{24 + i*20}" cy="{TOP/2}" r="6" fill="none" stroke="{OFF}" stroke-width="1.5"/>' for i in range(3)],
+               f'<text x="{W/2}" y="{TOP/2 + 4}" text-anchor="middle" fill="{DIM}" style="font-size:12px;letter-spacing:1px">{html.escape(title)}</text>']),
            *body, '</g>',
-           f'<rect x=".5" y=".5" width="{W-1}" height="{H-1:.0f}" rx="13.5" fill="none" stroke="{LINE}"/></svg>']
+           *([] if bare else [f'<rect x=".5" y=".5" width="{W-1}" height="{H-1:.0f}" rx="13.5" fill="none" stroke="{LINE}"/>']), '</svg>']
     open(path, 'w', encoding='utf8').write('\n'.join(svg))
 
 
