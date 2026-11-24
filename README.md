@@ -50,8 +50,6 @@ Five tools for your desktop, your servers, your team and your network. One quiet
   </tr>
 </table>
 
-```text
- ──────────────╮     ╭╮                ╭─────────────────────────────────────────
-               ╰─╮ ╭─╯╰╮ ╭─╮         ╭─╯
-                 ╰─╯   ╰─╯ ╰─────────╯        thanks for stopping by.  @%#*+=-:.
-```
+<p align="center">
+  <img src="assets/heartbeat.svg" alt="heartbeat — thanks for stopping by" width="100%" />
+</p>
