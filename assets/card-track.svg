@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 168" width="600" height="168" role="img" aria-label="TRACK">
+<style>
+text{font-family:ui-monospace,'SF Mono','Cascadia Mono',Menlo,Consolas,monospace;font-size:7.59px;white-space:pre}
+.f{animation:drift 10s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-13.5px)}}
+.w{animation:glow 4.8s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:1}50%{opacity:.8}}
+.scan{animation:scan 7s linear infinite}
+@keyframes scan{from{transform:translateY(-60px)}to{transform:translateY(228px)}}
+.live{animation:live 2.4s ease-in-out infinite}
+@keyframes live{0%,100%{opacity:1}50%{opacity:.2}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<rect width="600" height="168" rx="14" fill="#090909"/>
+<defs><radialGradient id="m" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<mask id="k"><rect width="600" height="168" fill="url(#m)"/></mask>
+<linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".045"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<clipPath id="c"><rect width="600" height="168" rx="14"/></clipPath></defs>
+<g clip-path="url(#c)">
+<g mask="url(#k)"><g class="f">
+<text x="0" y="7.2" fill="rgb(99,99,95)" textLength="459.0" lengthAdjust="spacingAndGlyphs">=============                                                                         ================</text>
+<text x="0" y="7.2" fill="rgb(89,89,85)" textLength="481.5" lengthAdjust="spacingAndGlyphs">             ----                                                                 ----                -----</text>
+<text x="0" y="7.2" fill="rgb(78,78,74)" textLength="499.5" lengthAdjust="spacingAndGlyphs">                 ::::                                                        :::::                         ::::</text>
+<text x="0" y="7.2" fill="rgb(68,68,64)" textLength="526.5" lengthAdjust="spacingAndGlyphs">                     ......                                            ......                                  ......</text>
+<text x="0" y="16.2" fill="rgb(99,99,95)" textLength="445.5" lengthAdjust="spacingAndGlyphs">=========                                                                          ================</text>
+<text x="0" y="16.2" fill="rgb(89,89,85)" textLength="463.5" lengthAdjust="spacingAndGlyphs">         -----                                                                -----                ----</text>
+<text x="0" y="16.2" fill="rgb(78,78,74)" textLength="486.0" lengthAdjust="spacingAndGlyphs">              ::::                                                        ::::                         :::::</text>
+<text x="0" y="16.2" fill="rgb(68,68,64)" textLength="513.0" lengthAdjust="spacingAndGlyphs">                  ......                                            ......                                  ......</text>
+<text x="0" y="25.2" fill="rgb(99,99,95)" textLength="27.0" lengthAdjust="spacingAndGlyphs">======</text>
+<text x="0" y="25.2" fill="rgb(89,89,85)" textLength="450.0" lengthAdjust="spacingAndGlyphs">      ----                                                                                       ---</text>
+<text x="0" y="25.2" fill="rgb(78,78,74)" textLength="468.0" lengthAdjust="spacingAndGlyphs">          :::::                                                                                     ::::</text>
+<text x="0" y="25.2" fill="rgb(68,68,64)" textLength="499.5" lengthAdjust="spacingAndGlyphs">               ......                                                                                   .......</text>
+<text x="0" y="34.2" fill="rgb(99,99,95)" textLength="13.5" lengthAdjust="spacingAndGlyphs">===</text>
+<text x="0" y="34.2" fill="rgb(89,89,85)" textLength="31.5" lengthAdjust="spacingAndGlyphs">   ----</text>
+<text x="0" y="34.2" fill="rgb(78,78,74)" textLength="454.5" lengthAdjust="spacingAndGlyphs">       :::::                                                                                     ::::</text>
+<text x="0" y="34.2" fill="rgb(68,68,64)" textLength="486.0" lengthAdjust="spacingAndGlyphs">            ......                                                                                   .......</text>
+<text x="0" y="43.2" fill="rgb(89,89,85)" textLength="18.0" lengthAdjust="spacingAndGlyphs">----</text>
+<text x="0" y="43.2" fill="rgb(78,78,74)" textLength="441.0" lengthAdjust="spacingAndGlyphs">    :::::                                                                                        :</text>
+<text x="0" y="43.2" fill="rgb(68,68,64)" textLength="472.5" lengthAdjust="spacingAndGlyphs">         ......                                                                                   .......</text>
+<text x="0" y="52.2" fill="rgb(89,89,85)" textLength="4.5" lengthAdjust="spacingAndGlyphs">-</text>
+<text x="0" y="52.2" fill="rgb(78,78,74)" textLength="27.0" lengthAdjust="spacingAndGlyphs"> :::::</text>
+<text x="0" y="52.2" fill="rgb(68,68,64)" textLength="459.0" lengthAdjust="spacingAndGlyphs">      ......                                                                                     .....</text>
+<text x="0" y="61.2" fill="rgb(78,78,74)" textLength="13.5" lengthAdjust="spacingAndGlyphs">:::</text>
+<text x="0" y="61.2" fill="rgb(68,68,64)" textLength="445.5" lengthAdjust="spacingAndGlyphs">   ......                                                                                        ..</text>
+<text x="0" y="70.2" fill="rgb(78,78,74)" textLength="4.5" lengthAdjust="spacingAndGlyphs">:</text>
+<text x="0" y="70.2" fill="rgb(68,68,64)" textLength="31.5" lengthAdjust="spacingAndGlyphs"> ......</text>
+<text x="0" y="79.2" fill="rgb(68,68,64)" textLength="22.5" lengthAdjust="spacingAndGlyphs">.....</text>
+<text x="0" y="88.2" fill="rgb(68,68,64)" textLength="625.5" lengthAdjust="spacingAndGlyphs">...                                                                                                                                      ..</text>
+</g></g><g class="w">
+<text x="0" y="34.2" fill="#f2f2ed" textLength="427.5" lengthAdjust="spacingAndGlyphs">                                     @@@@@@@@@@  @@@@@@@@      @@@@@@      @@@@@@    @@      @@</text>
+<text x="0" y="43.2" fill="#f2f2ed" textLength="418.5" lengthAdjust="spacingAndGlyphs">                                         @@      @@      @@  @@      @@  @@      @@  @@    @@</text>
+<text x="0" y="52.2" fill="#f2f2ed" textLength="409.5" lengthAdjust="spacingAndGlyphs">                                         @@      @@      @@  @@      @@  @@          @@  @@</text>
+<text x="0" y="61.2" fill="#f2f2ed" textLength="400.5" lengthAdjust="spacingAndGlyphs">                                         @@      @@@@@@@@    @@@@@@@@@@  @@          @@@@</text>
+<text x="0" y="70.2" fill="#f2f2ed" textLength="409.5" lengthAdjust="spacingAndGlyphs">                                         @@      @@  @@      @@      @@  @@          @@  @@</text>
+<text x="0" y="79.2" fill="#f2f2ed" textLength="418.5" lengthAdjust="spacingAndGlyphs">                                         @@      @@    @@    @@      @@  @@      @@  @@    @@</text>
+<text x="0" y="88.2" fill="#f2f2ed" textLength="427.5" lengthAdjust="spacingAndGlyphs">                                         @@      @@      @@  @@      @@    @@@@@@    @@      @@</text>
+</g>
+<text x="300.0" y="118" text-anchor="middle" fill="#b3b3ad" style="font-size:15px">who shipped what, today</text>
+<text x="300.0" y="142" text-anchor="middle" fill="#8c8c88" style="font-size:12px">web app · private</text>
+<rect class="scan" x="0" y="0" width="600" height="60" fill="url(#s)"/>
+</g>
+<rect x=".5" y=".5" width="599" height="167" rx="13.5" fill="none" stroke="#303030"/></svg>
