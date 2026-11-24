@@ -17,16 +17,6 @@
   rule      local-first. no telemetry. it should idle at a few percent cpu.
 ```
 
-<p align="center">
-  <a href="https://github.com/itsnothyun/Pulse"><img src="assets/icons/pulse.png" width="72" alt="Pulse" /></a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/itsnothyun/Pulse-Explorer"><img src="assets/icons/explorer.png" width="72" alt="Pulse Explorer" /></a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/itsnothyun/Stash"><img src="assets/icons/stash.png" width="72" alt="Stash" /></a>
-  <br>
-  <sub><b>Pulse</b> &nbsp;·&nbsp; <b>Explorer</b> &nbsp;·&nbsp; <b>Stash</b></sub>
-</p>
-
 ### ▌ the pulse ecosystem
 
 Five tools for your desktop, your servers, your team and your network. One quiet look.
@@ -51,7 +41,6 @@ Five tools for your desktop, your servers, your team and your network. One quiet
   <tr>
     <td width="50%"><a href="https://github.com/itsnothyun/Stash"><img src="assets/card-stash.svg" alt="Stash — floating notes, stashed locally" width="100%" /></a></td>
     <td width="50%">
-      <img src="assets/icons/stash.png" width="40" align="left" alt="" />
       <b><a href="https://github.com/itsnothyun/Stash">Stash</a></b><br>
       Floating sticky notes with a real workspace behind them. Press <code>Ctrl/Cmd + Shift + N</code> anywhere,
       write, and find it again with full-text search. SQLite on your machine, no cloud.<br><br>
