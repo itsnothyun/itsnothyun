@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" width="1200" height="100" role="img" aria-label="heartbeat">
+<style>
+text{font-family:ui-monospace,'SF Mono','Cascadia Mono',Menlo,Consolas,monospace;white-space:pre}
+.trace{stroke-dasharray:420 2212;animation:run 4s linear infinite}
+@keyframes run{from{stroke-dashoffset:420}to{stroke-dashoffset:-1792}}
+.live{animation:live 2.4s ease-in-out infinite}@keyframes live{0%,100%{opacity:1}50%{opacity:.2}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.trace{stroke-dasharray:none}}
+</style>
+<defs><linearGradient id="fadeL" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".08" stop-color="#fff"/><stop offset=".92" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<mask id="mk"><rect width="1200" height="100" fill="url(#fadeL)"/></mask></defs>
+<rect width="1200" height="100" rx="14" fill="#090909"/><rect x=".5" y=".5" width="1199" height="99" rx="13.5" fill="none" stroke="#303030"/>
+<g mask="url(#mk)"><path d="M0,56 L0,56 L14,50 L22,56 L32,56 L38,66 L46,12 L54,82 L60,56 L76,56 L88,44 L102,56 L300,56 L314,50 L322,56 L332,56 L338,66 L346,12 L354,82 L360,56 L376,56 L388,44 L402,56 L600,56 L614,50 L622,56 L632,56 L638,66 L646,12 L654,82 L660,56 L676,56 L688,44 L702,56 L900,56 L914,50 L922,56 L932,56 L938,66 L946,12 L954,82 L960,56 L976,56 L988,44 L1002,56 L1200,56" fill="none" stroke="#2e2e2e" stroke-width="2" stroke-linejoin="round"/>
+<path class="trace" d="M0,56 L0,56 L14,50 L22,56 L32,56 L38,66 L46,12 L54,82 L60,56 L76,56 L88,44 L102,56 L300,56 L314,50 L322,56 L332,56 L338,66 L346,12 L354,82 L360,56 L376,56 L388,44 L402,56 L600,56 L614,50 L622,56 L632,56 L638,66 L646,12 L654,82 L660,56 L676,56 L688,44 L702,56 L900,56 L914,50 L922,56 L932,56 L938,66 L946,12 L954,82 L960,56 L976,56 L988,44 L1002,56 L1200,56" fill="none" stroke="#f2f2ed" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></g>
+</svg>

@@ -53,18 +53,9 @@ Five tools for your desktop, your servers, your team and your network. One quiet
 ### ▌ pulse of the day
 
 <!-- pulse:start -->
-```text
- RECENT ──────────────────────────────────────────────────────
-  2026-11-24  Stash            quiet this week
-  2026-11-24  Pulse-Explorer   1 commit this week
-  2026-11-19  Pulse            quiet this week
-
- RELEASES ────────────────────────────────────────────────────
-  Pulse            v1.2.0    2026-10-19
-  Stash            v0.1.3    2026-10-15
-
-  last beat  2026-11-24 04:48 UTC  ·  field phase 328
-```
+<p align="center">
+  <img src="assets/today.svg" width="100%" alt="pulse of the day, 2026-11-24: Pulse-Explorer 1 commit this week" />
+</p>
 <!-- pulse:end -->
 
 <p align="center">

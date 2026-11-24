@@ -21,10 +21,6 @@ def api(path):
         return None
 
 
-def rule(title, width=62):
-    return f' {title} ' + '─' * (width - len(title) - 2)
-
-
 now = dt.datetime.now(dt.timezone.utc)
 day = now.timetuple().tm_yday
 
@@ -40,21 +36,21 @@ for e in events:
     name = e['repo']['name'].split('/')[-1]
     pushes[name] = pushes.get(name, 0) + max(1, len(e['payload'].get('commits') or []))
 
-lines = ['```text', rule('RECENT')]
-for r in repos:
-    pushed = r['pushed_at'][:10]
-    n = pushes.get(r['name'])
-    note = f'{n} commit{"s" * (n != 1)} this week' if n else 'quiet this week'
-    lines.append(f'  {pushed}  {r["name"]:<16} {note}')
-
-lines += ['', rule('RELEASES')]
+recent = [(r['name'], r['pushed_at'][:10], pushes.get(r['name'], 0)) for r in repos]
+releases = []
 for name in RELEASE_REPOS:
     rel = api(f'/repos/{USER}/{name}/releases/latest')
     if rel and rel.get('tag_name'):
-        lines.append(f'  {name:<16} {rel["tag_name"]:<9} {rel["published_at"][:10]}')
+        releases.append((name, rel['tag_name'], rel['published_at'][:10]))
+releases.sort(key=lambda r: r[2], reverse=True)
 
-lines += ['', f'  last beat  {now:%Y-%m-%d %H:%M} UTC  ·  field phase {day:03d}', '```']
-block = '\n'.join(lines)
+sys.path.insert(0, HERE)
+import term
+term.render(os.path.join(ROOT, 'assets', 'today.svg'), now, recent, releases, day)
+
+summary = '; '.join(f'{n} {c} commit{"s" * (c != 1)} this week' for n, _, c in recent if c) or 'a quiet week'
+block = ('<p align="center">\n  <img src="assets/today.svg" width="100%" '
+         f'alt="pulse of the day, {now:%Y-%m-%d}: {summary}" />\n</p>')
 
 readme_path = os.path.join(ROOT, 'README.md')
 readme = open(readme_path, encoding='utf8').read()
@@ -64,5 +60,4 @@ open(readme_path, 'w', encoding='utf8', newline='\n').write(readme)
 
 env = dict(os.environ, PULSE_PHASE=str(day * 0.37), PULSE_OUT=os.path.join(ROOT, 'assets'))
 subprocess.run([sys.executable, os.path.join(HERE, 'gen.py'), 'profile'], env=env, check=True)
-sys.stdout.reconfigure(encoding="utf-8")
 print(block)

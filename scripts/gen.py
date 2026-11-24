@@ -116,7 +116,7 @@ def banner(path, word, lines, W=1200, CH=14, s=2, tag='', badge='', pad_top=None
 def card(path, word, sub, meta):
     banner(path, word, [(sub, MID, 15), (meta, DIM, 12)], W=600, CH=9, s=1, pad_top=3, pad_bot=2, type_first=False)
 
-def heartbeat(path, W=1200, H=120):
+def heartbeat(path, W=1200, H=100):
     mid = 56; pts = []; x = 0
     beat = [(0,0),(14,-6),(22,0),(32,0),(38,10),(46,-44),(54,26),(60,0),(76,0),(88,-12),(102,0)]
     while x < W:
@@ -139,8 +139,6 @@ def heartbeat(path, W=1200, H=120):
            f'<rect width="{W}" height="{H}" rx="14" fill="{BG}"/><rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="13.5" fill="none" stroke="#303030"/>',
            f'<g mask="url(#mk)"><path d="{d}" fill="none" stroke="#2e2e2e" stroke-width="2" stroke-linejoin="round"/>',
            f'<path class="trace" d="{d}" fill="none" stroke="{ON}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></g>',
-           f'<circle class="live" cx="{W/2-150}" cy="{H-18}" r="3" fill="{ON}"/>',
-           f'<text x="{W/2-138}" y="{H-14}" fill="{DIM}" style="font-size:12px;letter-spacing:2px">THANKS FOR STOPPING BY</text>',
            '</svg>']
     open(path, 'w', encoding='utf8').write('\n'.join(out))
 
