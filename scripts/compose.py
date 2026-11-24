@@ -1,7 +1,9 @@
 # Builds assets/profile.svg: one window that holds the banner, whoami, the project
 # cards and pulse of the day. Each part is rendered on its own, stripped of its frame,
-# and embedded as an animated image so their styles and ids never collide.
-import base64, html, os, re, tempfile
+# and inlined as a nested <svg>. Inlined, not embedded as <image>: images nested in an
+# SVG that GitHub shows through <img> freeze on their first frame. Every part's ids,
+# classes and keyframes get a prefix, and its CSS is scoped to its own <svg>.
+import html, itertools, os, re, tempfile
 
 import gen
 import term
@@ -32,12 +34,47 @@ def size(svg):
     return float(m.group(1)), float(m.group(2))
 
 
+_ids = itertools.count()
+
+
+def scope_css(css, p):
+    # rename classes and keyframes, and scope plain selectors (text, *) to this part
+    css = re.sub(r'\.([A-Za-z][\w-]*)', lambda m: f'.{p}-{m.group(1)}', css)
+    css = re.sub(r'@keyframes\s+([\w-]+)', lambda m: f'@keyframes {p}-{m.group(1)}', css)
+    css = re.sub(r'animation:\s*(?!none)([A-Za-z][\w-]*)', lambda m: f'animation:{p}-{m.group(1)}', css)
+    out, depth, stack, i, sel = [], 0, [], 0, ''
+    for ch in css:
+        if ch == '{':
+            head = sel.strip()
+            in_kf = any(k.startswith('@keyframes') for k in stack)
+            if not head.startswith('@') and not in_kf:
+                head = ','.join(f'.{p} {h.strip()}' for h in head.split(','))
+            out.append(head + '{'); stack.append(sel.strip()); sel = ''
+        elif ch == '}':
+            out.append(sel + '}'); sel = ''
+            if stack: stack.pop()
+        elif ch == ';' and stack and not stack[-1].startswith('@'):
+            out.append(sel + ';'); sel = ''
+        else:
+            sel += ch
+    return ''.join(out) + sel
+
+
 def embed(svg, x, y, w=None):
+    p = f'p{next(_ids)}'
     vw, vh = size(svg)
     w = w or vw
     h = vh * w / vw
-    data = base64.b64encode(unframe(svg).encode('utf8')).decode('ascii')
-    return f'<image x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" href="data:image/svg+xml;base64,{data}"/>', h
+    svg = unframe(svg)
+    inner = svg[svg.index('>', svg.index('<svg')) + 1: svg.rindex('</svg>')]
+    css = ''.join(re.findall(r'<style>(.*?)</style>', inner, re.S))
+    inner = re.sub(r'<style>.*?</style>', '', inner, flags=re.S)
+    inner = re.sub(r'\bid="([^"]+)"', lambda m: f'id="{p}-{m.group(1)}"', inner)
+    inner = re.sub(r'url\(#([^)]+)\)', lambda m: f'url(#{p}-{m.group(1)})', inner)
+    inner = re.sub(r'class="([^"]+)"', lambda m: 'class="' + ' '.join(f'{p}-{c}' for c in m.group(1).split()) + '"', inner)
+    inner = re.sub(r'animation:\s*(?!none)([A-Za-z][\w-]*)', lambda m: f'animation:{p}-{m.group(1)}', inner)
+    return (f'<svg class="{p}" x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" viewBox="0 0 {vw:g} {vh:g}">'
+            f'<style>{scope_css(css, p)}</style>{inner}</svg>'), h
 
 
 def label(y, text, right=''):
