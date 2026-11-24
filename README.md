@@ -3,9 +3,11 @@
 </p>
 
 <p align="center">
-  <a href="mailto:prexcaangay@gmail.com"><img src="https://img.shields.io/badge/Gmail-prexcaangay%40gmail.com-090909?style=flat-square&logo=gmail&logoColor=f2f2ed&labelColor=090909&color=262626" alt="Gmail" /></a>
-  <a href="https://www.instagram.com/prxcyng/"><img src="https://img.shields.io/badge/Instagram-%40prxcyng-090909?style=flat-square&logo=instagram&logoColor=f2f2ed&labelColor=090909&color=262626" alt="Instagram" /></a>
-  <a href="https://www.threads.com/@prxcyng"><img src="https://img.shields.io/badge/Threads-%40prxcyng-090909?style=flat-square&logo=threads&logoColor=f2f2ed&labelColor=090909&color=262626" alt="Threads" /></a>
+  <a href="mailto:prexcaangay@gmail.com" title="prexcaangay@gmail.com"><img src="assets/social-gmail.svg" width="52" alt="Gmail" /></a>
+  &nbsp;
+  <a href="https://www.instagram.com/prxcyng/" title="Instagram @prxcyng"><img src="assets/social-instagram.svg" width="52" alt="Instagram" /></a>
+  &nbsp;
+  <a href="https://www.threads.com/@prxcyng" title="Threads @prxcyng"><img src="assets/social-threads.svg" width="52" alt="Threads" /></a>
 </p>
 
 <p align="center">
