@@ -1,6 +1,6 @@
 <!-- pulse:start -->
 <p align="center">
-  <img src="assets/profile.svg" width="100%" alt="Hyun, software engineer building the pulse ecosystem: Pulse, Explorer, Sync, Track, Connect and Stash. Pulse of the day, 2026-11-25: Pulse-Explorer 7 commits this week" />
+  <img src="assets/profile.svg" width="100%" alt="Hyun, software engineer building the pulse ecosystem: Pulse, Explorer, Sync, Track, Connect and Stash. Pulse of the day, 2026-11-26: Pulse-Explorer 6 commits this week; Stash 1 commit this week" />
 </p>
 <!-- pulse:end -->
 
